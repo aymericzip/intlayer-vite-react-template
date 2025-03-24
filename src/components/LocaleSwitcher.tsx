@@ -7,7 +7,6 @@ export const LocaleSwitcher: FC = () => {
 
   return (
     <div
-      id="localePopover"
       style={{
         position: "fixed",
         bottom: "1rem",
@@ -31,10 +30,10 @@ export const LocaleSwitcher: FC = () => {
             display: "flex",
           }}
         >
-          <span>
+          <button>
             {/* Language in its own Locale - e.g. Français */}
             {getLocaleName(localeItem, locale)}
-          </span>
+          </button>
         </a>
       ))}
     </div>
