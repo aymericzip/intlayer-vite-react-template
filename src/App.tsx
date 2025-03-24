@@ -4,7 +4,6 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { IntlayerProvider, useIntlayer } from "react-intlayer";
 import { LocaleSwitcher } from "./components/LocaleSwitcher";
-// import { IntlayerEditorProvider } from "intlayer-editor";
 
 function AppContent() {
   const [count, setCount] = useState(0);
