@@ -25,7 +25,6 @@ const appContent = {
     }),
 
     edit: t<ReactNode>({
-      // No olvides importar React si usas un React node en tu contenido
       en: (
         <>
           Edit <code>src/App.tsx</code> and save to test HMR
