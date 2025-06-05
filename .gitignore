@@ -26,4 +26,7 @@ dist-ssr
 
 # intlayer
 .intlayer
-types/intlayer.d.ts
+
+# package lock - remove for git to always use the latest package to automate testing
+package-lock.json
+pnpm-lock.yaml
