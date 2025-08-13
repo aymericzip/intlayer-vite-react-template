@@ -12,6 +12,9 @@ const config: IntlayerConfig = {
     ],
     defaultLocale: Locales.ENGLISH,
   },
+  editor: {
+    applicationURL: "http://localhost:5173",
+  },
 };
 
 export default config;
