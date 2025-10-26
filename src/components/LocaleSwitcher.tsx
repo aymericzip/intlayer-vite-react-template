@@ -1,9 +1,9 @@
 import { getLocaleName, getLocalizedUrl } from "intlayer";
+import type { FC } from "react";
 import { useLocale } from "react-intlayer";
-import { type FC } from "react";
 
 export const LocaleSwitcher: FC = () => {
-  const { locale, availableLocales, setLocale } = useLocale({});
+  const { locale, availableLocales, setLocale } = useLocale();
 
   return (
     <div
@@ -21,8 +21,7 @@ export const LocaleSwitcher: FC = () => {
           href={getLocalizedUrl(location.pathname, localeItem)}
           hrefLang={localeItem}
           aria-current={locale === localeItem ? "page" : undefined}
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={() => {
             setLocale(localeItem);
           }}
           key={localeItem}
@@ -30,7 +29,7 @@ export const LocaleSwitcher: FC = () => {
             display: "flex",
           }}
         >
-          <button>
+          <button type="button">
             {/* Language in its own Locale - e.g. Français */}
             {getLocaleName(localeItem, locale)}
           </button>
