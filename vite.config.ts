@@ -5,13 +5,13 @@ import { intlayer, intlayerProxy } from "vite-intlayer";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [
-		react(),
-		intlayer(),
-		intlayerProxy(),
-		visualizer({
-			emitFile: true,
-			filename: "stats.html",
-		}),
-	],
+  plugins: [
+    react(),
+    intlayer(),
+    intlayerProxy(),
+    visualizer({
+      emitFile: true,
+      filename: "stats.html",
+    }),
+  ],
 });
