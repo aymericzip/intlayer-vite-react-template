@@ -11,12 +11,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "intlayer": "8.0.0-canary.5",
+    "intlayer": "latest",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-intlayer": "8.0.0-canary.5",
+    "react-intlayer": "latest",
     "rollup-plugin-visualizer": "^6.0.3",
-    "vite-intlayer": "8.0.0-canary.5"
+    "vite-intlayer": "latest"
   },
   "devDependencies": {
     "@types/react": "^19.1.13",
