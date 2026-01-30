@@ -1,5 +1,5 @@
-import { t, type Dictionary } from "intlayer";
-import React, { type ReactNode } from "react";
+import { insert, t, type Dictionary } from "intlayer";
+import { type ReactNode } from "react";
 
 const appContent = {
   key: "app",
@@ -47,6 +47,8 @@ const appContent = {
       fr: "Cliquez sur les logos Vite et React pour en savoir plus",
       es: "Haga clic en los logotipos de Vite y React para obtener más información",
     }),
+
+    insert: insert("My {{stuf}} ooo"),
   },
 } satisfies Dictionary;
 

@@ -6,7 +6,6 @@ import { IntlayerProvider, useIntlayer } from "react-intlayer";
 import { LocaleSwitcher } from "./components/LocaleSwitcher";
 
 function AppContent() {
-  const [count, setCount] = useState(0);
   const content = useIntlayer("app");
 
   return (
@@ -22,14 +21,8 @@ function AppContent() {
             alt={content.reactLogo.value}
           />
         </a>
-      </div>
-      <h1>{content.title}</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          {content.count}
-          {count}
-        </button>
-        <p>{content.edit}</p>
+
+        {content.insert({ stuf: 9 }).value}
       </div>
       <p className="read-the-docs">{content.readTheDocs}</p>
       <LocaleSwitcher />
