@@ -1,9 +1,12 @@
 import { getLocaleName, getLocalizedUrl } from "intlayer";
 import type { FC } from "react";
 import { useLocale } from "react-intlayer";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const LocaleSwitcher: FC = () => {
   const { locale, availableLocales, setLocale } = useLocale();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   return (
     <div
@@ -17,23 +20,22 @@ export const LocaleSwitcher: FC = () => {
       }}
     >
       {availableLocales.map((localeItem) => (
-        <a
-          href={getLocalizedUrl(location.pathname, localeItem)}
-          hrefLang={localeItem}
-          aria-current={locale === localeItem ? "page" : undefined}
+        <button
+          key={localeItem}
+          type="button"
           onClick={() => {
             setLocale(localeItem);
+            navigate(getLocalizedUrl(pathname, localeItem));
           }}
-          key={localeItem}
           style={{
             display: "flex",
+            border: locale === localeItem ? "2px solid" : "1px solid",
           }}
+          aria-current={locale === localeItem ? "page" : undefined}
         >
-          <button type="button">
-            {/* Language in its own Locale - e.g. Français */}
-            {getLocaleName(localeItem, locale)}
-          </button>
-        </a>
+          {/* Language in its own Locale - e.g. Français */}
+          {getLocaleName(localeItem, locale)}
+        </button>
       ))}
     </div>
   );

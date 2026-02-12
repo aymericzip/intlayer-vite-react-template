@@ -15,6 +15,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-intlayer": "latest",
+    "react-router-dom": "^7.13.0",
     "rollup-plugin-visualizer": "^6.0.3",
     "vite-intlayer": "latest"
   },

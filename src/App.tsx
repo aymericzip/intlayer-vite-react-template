@@ -1,11 +1,13 @@
-import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { IntlayerProvider, useIntlayer } from "react-intlayer";
+import { useIntlayer } from "react-intlayer";
 import { LocaleSwitcher } from "./components/LocaleSwitcher";
+import { useI18nHTMLAttributes } from "./hooks/useI18nHTMLAttributes";
+import { LocaleRouter } from "./components/LocaleRouter";
 
 function AppContent() {
+  useI18nHTMLAttributes();
   const content = useIntlayer("app");
 
   return (
@@ -32,9 +34,9 @@ function AppContent() {
 
 function App() {
   return (
-    <IntlayerProvider>
+    <LocaleRouter>
       <AppContent />
-    </IntlayerProvider>
+    </LocaleRouter>
   );
 }
 
