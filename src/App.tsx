@@ -24,7 +24,7 @@ function AppContent() {
           />
         </a>
 
-        {content.insert({ stuf: 9 }).value}
+        {content.insert({ stuf: 9 })}
       </div>
       <p className="read-the-docs">{content.readTheDocs}</p>
       <LocaleSwitcher />
