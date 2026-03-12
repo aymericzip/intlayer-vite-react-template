@@ -12,21 +12,21 @@ const config: IntlayerConfig = {
   },
   editor: {
     applicationURL: "http://localhost:5173",
-    enabled: true,
+    enabled: false,
     // clientId: process.env.INTLAYER_CLIENT_ID,
     // clientSecret: process.env.INTLAYER_CLIENT_SECRET,
     liveSync: true,
   },
   build: {
-    optimize: true,
+    optimize: false,
     importMode: "dynamic",
   },
   ai: {
     apiKey: process.env.OPENAI_API_KEY,
   },
-  log:{
+  log: {
     mode: "verbose",
-  }
+  },
 };
 
 export default config;
