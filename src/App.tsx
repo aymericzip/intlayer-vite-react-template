@@ -23,8 +23,6 @@ function AppContent() {
             alt={content.reactLogo.value}
           />
         </a>
-
-        {content.insert({ stuf: 9 })}
       </div>
       <p className="read-the-docs">{content.readTheDocs}</p>
       <LocaleSwitcher />
