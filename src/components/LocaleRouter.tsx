@@ -1,47 +1,25 @@
-import { type FC, type ReactNode, useEffect } from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useLocation,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
-import { IntlayerProvider, useLocale } from "react-intlayer";
-import { type Locale, getPathWithoutLocale } from "intlayer";
+import { localeMap } from "intlayer"; // Utility functions and types from 'intlayer'
+import type { FC, PropsWithChildren } from "react"; // React types for functional components and props
+import { IntlayerProvider } from "react-intlayer"; // Provider for internationalization context
+import { BrowserRouter, Route, Routes } from "react-router-dom"; // Router components for managing navigation
 
-const LocaleLoader: FC<{ children: ReactNode }> = ({ children }) => {
-  const { locale, setLocale } = useLocale();
-  const { locale: pathLocale } = useParams();
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    if (pathLocale && pathLocale !== locale) {
-      setLocale(pathLocale as Locale);
-    }
-  }, [pathLocale, locale, setLocale]);
-
-  useEffect(() => {
-    if (!pathLocale) {
-      const pathWithoutLocale = getPathWithoutLocale(pathname);
-      navigate(`/${locale}${pathWithoutLocale}`, { replace: true });
-    }
-  }, [pathLocale, locale, navigate, pathname]);
-
-  return <>{children}</>;
-};
-
-export const LocaleRouter: FC<{ children: ReactNode }> = ({ children }) => (
+/**
+ * A router component that sets up locale-specific routes.
+ * It uses React Router to manage navigation and render localized components.
+ */
+export const LocaleRouter: FC<PropsWithChildren> = ({ children }) => (
   <BrowserRouter>
-    <IntlayerProvider>
-      <Routes>
+    <Routes>
+      {localeMap(({ locale, urlPrefix }) => (
         <Route
-          path="/:locale/*"
-          element={<LocaleLoader>{children}</LocaleLoader>}
+          // Route pattern to capture the locale (e.g., /en/, /fr/) and match all subsequent paths
+          path={`${urlPrefix}/*`}
+          key={locale}
+          element={
+            <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+          } // Wraps children with locale management and markdown rendering
         />
-        <Route path="*" element={<LocaleLoader>{children}</LocaleLoader>} />
-      </Routes>
-    </IntlayerProvider>
+      ))}
+    </Routes>
   </BrowserRouter>
 );

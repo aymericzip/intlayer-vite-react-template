@@ -4,9 +4,21 @@ import { useLocale } from "react-intlayer";
 import { useNavigate, useLocation } from "react-router-dom";
 
 export const LocaleSwitcher: FC = () => {
-  const { locale, availableLocales, setLocale } = useLocale();
+  const { pathname, search } = useLocation(); // Get the current URL path. Example: /fr/about
   const navigate = useNavigate();
-  const { pathname } = useLocation();
+
+  const { setLocale, locale, availableLocales } = useLocale({
+    onLocaleChange: (locale) => {
+      // Construct the URL with the updated locale
+      // Example: /es/about
+      const pathWithLocale = getLocalizedUrl(`${pathname}${search}`, locale);
+
+      console.log({ pathWithLocale });
+
+      // Update the URL path
+      navigate(pathWithLocale);
+    },
+  });
 
   return (
     <div
@@ -25,7 +37,6 @@ export const LocaleSwitcher: FC = () => {
           type="button"
           onClick={() => {
             setLocale(localeItem);
-            navigate(getLocalizedUrl(pathname, localeItem));
           }}
           style={{
             display: "flex",
