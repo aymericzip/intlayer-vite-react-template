@@ -11,7 +11,7 @@ const config: IntlayerConfig = {
     defaultLocale: Locales.ENGLISH,
   },
   editor: {
-    enabled: true,
+    enabled: false,
     applicationURL: "http://localhost:5173",
     // clientId: process.env.INTLAYER_CLIENT_ID,
     // clientSecret: process.env.INTLAYER_CLIENT_SECRET,
@@ -25,6 +25,9 @@ const config: IntlayerConfig = {
   },
   ai: {
     apiKey: process.env.OPENAI_API_KEY,
+  },
+  compiler: {
+    output: ({ fileName }) => `./${fileName}.content.ts`,
   },
   log: {
     mode: "verbose",

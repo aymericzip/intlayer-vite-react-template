@@ -11,13 +11,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "intlayer": "latest",
+    "intlayer": "9.0.0-canary.12",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-intlayer": "latest",
+    "react-intlayer": "9.0.0-canary.12",
     "react-router-dom": "^7.13.2",
     "rollup-plugin-visualizer": "^7.0.1",
-    "vite-intlayer": "latest"
+    "vite-intlayer": "9.0.0-canary.12"
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
@@ -28,7 +28,7 @@
     "eslint": "^10.1.0",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
-    "intlayer-editor": "latest",
+    "intlayer-editor": "9.0.0-canary.12",
     "typescript": "^6.0.2",
     "vite": "^8.0.2"
   }
